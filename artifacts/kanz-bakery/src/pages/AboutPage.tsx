@@ -14,11 +14,12 @@ export default function AboutPage() {
     bio: string;
   }>;
 
+  const baseUrl = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
   const teamImages = [
-    '/images/team/william-buttlicker.jpg',
-    '/images/team/stanley-hudson.jpg',
-    '/images/team/pam-beesly.jpg',
-    '/images/team/kevin-malone.jpg',
+    ${baseUrl}/images/team/william-buttlicker.jpg,
+    ${baseUrl}/images/team/stanley-hudson.jpg,
+    ${baseUrl}/images/team/pam-beesly.jpg,
+    ${baseUrl}/images/team/kevin-malone.jpg,
   ];
 
   return (
@@ -58,7 +59,7 @@ export default function AboutPage() {
               data-testid="img-storefront"
             >
               <img
-                src="/images/pretzel-bakery-interior.jpg"
+                src={`${(import.meta.env.BASE_URL || '/').replace(/\/$/, '')}/images/pretzel-bakery-interior.jpg`}
                 alt={t('about.story.imgAlt')}
                 className="w-full h-full object-cover"
               />
