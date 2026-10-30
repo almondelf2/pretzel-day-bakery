@@ -109,7 +109,7 @@ pnpm --filter @workspace/kanz-bakery run build
 
 ## 🚢 Deployment
 
-Deployments are 100% automated! Whenever changes are pushed to the `main` branch, the `.github/workflows/deploy.yml` workflow:
+Deployments are 100% automated! Whenever changes are pushed to the `prod` branch, the `.github/workflows/deploy.yml` workflow:
 1. Installs project dependencies using `pnpm`.
 2. Compiles the TypeScript and Vite assets for the subpath `/pretzel-day-bakery/`.
 3. Uploads and deploys the static bundle to **GitHub Pages**.
