@@ -52,20 +52,6 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-border/40">
-          <p className="text-xs text-muted-foreground text-center">
-            I learned how to use Replit at the world's largest AI Training Hackathon, you can too by{' '}
-            <a
-              href="https://try.ka.nz/hack"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline hover:text-foreground transition-colors"
-            >
-              clicking here
-            </a>
-            .
-          </p>
-        </div>
       </div>
     </footer>
   );
