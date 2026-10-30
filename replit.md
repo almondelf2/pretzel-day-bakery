@@ -1,36 +1,35 @@
-# [Project name]
+# Pretzel Day Bakery
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A multilingual, frontend-only bakery demo for browsing pretzels and previewing a sample cart.
 
 ## Run & Operate
 
-- `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
+- `pnpm --filter @workspace/kanz-bakery run dev` — run the website
 - `pnpm run typecheck` — full typecheck across all packages
-- `pnpm run build` — typecheck + build all packages
-- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
+- `pnpm --filter @workspace/kanz-bakery run typecheck` — typecheck the website
+- `pnpm --filter @workspace/kanz-bakery run build` — build the static website
 
 ## Stack
 
 - pnpm workspaces, Node.js 24, TypeScript 5.9
-- API: Express 5
-- DB: PostgreSQL + Drizzle ORM
-- Validation: Zod (`zod/v4`), `drizzle-zod`
-- API codegen: Orval (from OpenAPI spec)
-- Build: esbuild (CJS bundle)
+- React, Vite, Wouter, Tailwind CSS, and i18next
+- Static menu data bundled with the frontend; no runtime API or database
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/kanz-bakery/src/pages/` — website pages
+- `artifacts/kanz-bakery/src/data/menu.ts` — bundled menu and category catalog
+- `artifacts/kanz-bakery/src/i18n/locales/` — English, French, and Arabic copy
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- The site is a static demo. Menu data ships with the app and requires no server.
+- Cart state stays in memory for the current browser session only.
+- Order and review submission are intentionally unavailable.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+Visitors can browse a multilingual bakery menu, view item details, and preview a sample cart.
 
 ## User preferences
 
@@ -38,7 +37,7 @@ _Populate as you build — explicit user instructions worth remembering across s
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- The order page is a demo only; it does not send or save orders.
 
 ## Pointers
 

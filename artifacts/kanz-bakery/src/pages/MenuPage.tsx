@@ -1,10 +1,8 @@
 import { Link, useLocation, useSearch } from 'wouter';
 import { useTranslation } from 'react-i18next';
-import { useListCategories, useListMenuItems } from '@workspace/api-client-react';
+import { categories, getMenuItemsByCategory } from '@/data/menu';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { StarRating } from '@/components/StarRating';
-import { Skeleton } from '@/components/ui/skeleton';
 import { QuantityControl } from '@/components/QuantityControl';
 import { Award } from 'lucide-react';
 
@@ -15,10 +13,7 @@ export default function MenuPage() {
   const categoryParam = new URLSearchParams(search).get('category');
   const selectedCategory = categoryParam ? Number(categoryParam) : null;
 
-  const { data: categories, isLoading: loadingCategories } = useListCategories();
-  const { data: menuItems, isLoading: loadingItems } = useListMenuItems(
-    selectedCategory ? { categoryId: selectedCategory } : undefined
-  );
+  const menuItems = getMenuItemsByCategory(selectedCategory);
 
   const handleCategoryChange = (categoryId: number | null) => {
     navigate(categoryId ? `/menu?category=${categoryId}` : '/menu');
@@ -53,14 +48,7 @@ export default function MenuPage() {
             >
               {t('menu.filter.all')}
             </Button>
-            {loadingCategories ? (
-              <>
-                <Skeleton className="h-9 w-24 shrink-0" />
-                <Skeleton className="h-9 w-24 shrink-0" />
-                <Skeleton className="h-9 w-24 shrink-0" />
-              </>
-            ) : (
-              categories?.map((category) => (
+            {categories.map((category) => (
                 <Button
                   key={category.id}
                   variant={selectedCategory === category.id ? 'default' : 'outline'}
@@ -71,8 +59,7 @@ export default function MenuPage() {
                 >
                   {category.name}
                 </Button>
-              ))
-            )}
+              ))}
           </div>
         </div>
       </section>
@@ -80,21 +67,7 @@ export default function MenuPage() {
       {/* Menu Items Grid */}
       <section className="py-10 sm:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          {loadingItems ? (
-            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
-              {Array.from({ length: 8 }).map((_, i) => (
-                <Card key={i} className="overflow-hidden">
-                  <Skeleton className="w-full h-40 sm:h-48" />
-                  <CardContent className="p-3 sm:p-4 space-y-3">
-                    <Skeleton className="h-5 w-3/4" />
-                    <Skeleton className="h-4 w-full" />
-                    <Skeleton className="h-4 w-2/3" />
-                    <Skeleton className="h-9 w-full mt-2" />
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          ) : menuItems && menuItems.length > 0 ? (
+          {menuItems.length > 0 ? (
             <>
               <div className="mb-4 sm:mb-6 text-xs sm:text-sm text-muted-foreground">
                 {t('menu.items.showing', { count: menuItems.length })}
@@ -166,12 +139,6 @@ export default function MenuPage() {
                             <p className="font-semibold text-base sm:text-lg text-foreground" data-testid={`text-price-${item.id}`}>
                               ${item.price.toFixed(2)}
                             </p>
-                            {item.averageRating != null && item.ratingCount > 0 && (
-                              <div className="flex items-center gap-1">
-                                <StarRating rating={item.averageRating} size="sm" />
-                                <span className="text-xs text-muted-foreground hidden sm:inline">({item.ratingCount})</span>
-                              </div>
-                            )}
                           </div>
 
                           <div onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>

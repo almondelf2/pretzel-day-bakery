@@ -14,7 +14,7 @@ const en = {
       subtitle:
         'Every pretzel hand-twisted, lye-dipped, and baked to perfection. Sweet, savory, or classic — there\'s a pretzel for every mood.',
       viewMenu: 'View Menu',
-      placeOrder: 'Place an Order',
+      placeOrder: 'View Order Demo',
       tagline: 'Award-Winning Pretzels',
     },
     stats: {
@@ -42,7 +42,7 @@ const en = {
       title: 'Planning an Event?',
       subtitle:
         'From office parties to grand celebrations, we craft custom pretzel spreads and catering that make every moment unforgettable.',
-      button: 'Schedule Your Order',
+      button: 'Explore Order Demo',
     },
   },
   about: {
@@ -169,8 +169,10 @@ const en = {
   order: {
     hero: {
       title: 'Schedule Your Order',
-      subtitle: 'Perfect for celebrations, office events, or stocking up on pretzels',
+      subtitle: 'Build a sample cart and explore the catering options.',
     },
+    demoNotice: 'This is a demo. Orders are not sent or saved.',
+    demoButton: 'Demo only — no order placed',
     type: {
       title: 'Order Type',
       bulk: { title: 'Bulk Order', desc: 'Large quantity of specific items' },
@@ -201,6 +203,9 @@ const en = {
       add: 'Add',
       each: 'each',
       specialInstructions: 'Special instructions for this item...',
+      removeItem: 'Remove {{item}}',
+      decreaseQuantity: 'Decrease quantity of {{item}}',
+      increaseQuantity: 'Increase quantity of {{item}}',
     },
     summary: {
       title: 'Order Summary',
@@ -208,7 +213,7 @@ const en = {
       items: 'Items',
       totalQty: 'Total Quantity',
       estimated: 'Estimated Total',
-      note: 'Final price confirmed upon order review',
+      note: 'Demo preview only; no order is placed.',
       submit: 'Submit Order',
       submitting: 'Submitting...',
       contact: "We'll contact you within 24 hours to confirm details and finalize your order.",
@@ -227,7 +232,7 @@ const en = {
     },
   },
   qty: {
-    addToOrder: 'Add to Order',
+    addToOrder: 'Add to Demo Cart',
     unavailable: 'Currently unavailable',
   },
   footer: {
@@ -235,7 +240,7 @@ const en = {
       'Hand-twisted soft pretzels — sweet, savory, and classic — baked fresh every morning. Because every day should be Pretzel Day.',
     quickLinks: 'Quick Links',
     about: 'About Us',
-    placeOrder: 'Place Order',
+    placeOrder: 'Order Demo',
     contact: 'Contact',
     hours: 'Hours',
     address: '123 Baker Street',

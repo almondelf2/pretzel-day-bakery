@@ -1,17 +1,14 @@
 import { Link } from 'wouter';
 import { useTranslation } from 'react-i18next';
-import { useGetFeaturedMenuItems, useGetMenuSummary } from '@workspace/api-client-react';
+import { getFeaturedMenuItems, getMenuSummary } from '@/data/menu';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { StarRating } from '@/components/StarRating';
 import { ChevronRight, Clock, Users, Award } from 'lucide-react';
-import { Skeleton } from '@/components/ui/skeleton';
-import { BreadMark } from '@/components/BrandLogo';
 
 export default function HomePage() {
   const { t } = useTranslation();
-  const { data: featured, isLoading: loadingFeatured } = useGetFeaturedMenuItems();
-  const { data: menuSummary, isLoading: loadingSummary } = useGetMenuSummary();
+  const featured = getFeaturedMenuItems();
+  const menuSummary = getMenuSummary();
 
   return (
     <div className="min-h-[100dvh] flex flex-col">
@@ -103,20 +100,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          {loadingFeatured ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-              {[1, 2, 3].map((i) => (
-                <Card key={i}>
-                  <Skeleton className="w-full h-48" />
-                  <CardContent className="p-6 space-y-3">
-                    <Skeleton className="h-6 w-3/4" />
-                    <Skeleton className="h-4 w-full" />
-                    <Skeleton className="h-4 w-1/2" />
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          ) : featured && featured.length > 0 ? (
+          {featured.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
               {featured.slice(0, 6).map((item, index) => (
                 <Link key={item.id} href={`/menu/${item.id}`}>
@@ -161,12 +145,6 @@ export default function HomePage() {
                         <p className="font-semibold text-lg text-foreground" data-testid={`text-price-${item.id}`}>
                           ${item.price.toFixed(2)}
                         </p>
-                        {item.averageRating && item.ratingCount > 0 && (
-                          <div className="flex items-center gap-1">
-                            <StarRating rating={item.averageRating} size="sm" />
-                            <span className="text-xs text-muted-foreground">({item.ratingCount})</span>
-                          </div>
-                        )}
                       </div>
                     </CardContent>
                   </Card>
@@ -189,7 +167,7 @@ export default function HomePage() {
       </section>
 
       {/* Menu Summary */}
-      {!loadingSummary && menuSummary && menuSummary.categories && menuSummary.categories.length > 0 && (
+      {menuSummary.categories.length > 0 && (
         <section className="py-14 sm:py-24 bg-muted/20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-10 sm:mb-12 space-y-3 sm:space-y-4">

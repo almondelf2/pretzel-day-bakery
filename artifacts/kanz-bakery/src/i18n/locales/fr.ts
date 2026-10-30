@@ -14,7 +14,7 @@ const fr = {
       subtitle:
         "Chaque bretzel torsadé à la main, trempé dans la soude et cuit à la perfection. Sucré, salé ou classique — il y a un bretzel pour chaque envie.",
       viewMenu: "Voir le menu",
-      placeOrder: "Passer une commande",
+      placeOrder: "Voir la démo de commande",
       tagline: "Bretzels primés",
     },
     stats: {
@@ -42,7 +42,7 @@ const fr = {
       title: "Vous organisez un événement\u00a0?",
       subtitle:
         "Des fêtes de bureau aux grandes célébrations, nous créons des plateaux de bretzels personnalisés et des prestations traiteur qui rendent chaque moment inoubliable.",
-      button: "Planifier votre commande",
+      button: "Explorer la démo de commande",
     },
   },
   about: {
@@ -169,8 +169,10 @@ const fr = {
   order: {
     hero: {
       title: "Planifiez votre commande",
-      subtitle: "Idéal pour les célébrations, les événements d\u2019entreprise ou pour faire le plein de bretzels",
+      subtitle: "Composez un panier de démonstration et découvrez les options traiteur.",
     },
+    demoNotice: "Ceci est une démo. Les commandes ne sont ni envoyées ni enregistrées.",
+    demoButton: "Démo uniquement — aucune commande passée",
     type: {
       title: "Type de commande",
       bulk: { title: "Commande en gros", desc: "Grande quantité d\u2019articles spécifiques" },
@@ -201,6 +203,9 @@ const fr = {
       add: "Ajouter",
       each: "l\u2019unité",
       specialInstructions: "Instructions spéciales pour cet article\u2026",
+      removeItem: "Supprimer {{item}}",
+      decreaseQuantity: "Diminuer la quantité de {{item}}",
+      increaseQuantity: "Augmenter la quantité de {{item}}",
     },
     summary: {
       title: "Récapitulatif",
@@ -208,7 +213,7 @@ const fr = {
       items: "Articles",
       totalQty: "Quantité totale",
       estimated: "Total estimé",
-      note: "Prix final confirmé lors de la vérification de la commande",
+      note: "Aperçu de démonstration uniquement ; aucune commande n’est passée.",
       submit: "Soumettre la commande",
       submitting: "Envoi en cours\u2026",
       contact: "Nous vous contacterons dans les 24 heures pour confirmer les détails et finaliser votre commande.",
@@ -227,7 +232,7 @@ const fr = {
     },
   },
   qty: {
-    addToOrder: "Ajouter à la commande",
+    addToOrder: "Ajouter au panier démo",
     unavailable: "Actuellement indisponible",
   },
   footer: {
@@ -235,7 +240,7 @@ const fr = {
       "Bretzels mous torsadés à la main — sucrés, salés et classiques — cuits frais chaque matin. Parce que chaque jour devrait être Pretzel Day.",
     quickLinks: "Liens rapides",
     about: "À propos",
-    placeOrder: "Commander",
+    placeOrder: "Démo de commande",
     contact: "Contact",
     address: "123 Baker Street",
     weekdays: "Lundi \u2013 Samedi\u00a0: 7h \u2013 19h",
