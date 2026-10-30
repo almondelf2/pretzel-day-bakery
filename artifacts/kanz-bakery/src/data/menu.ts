@@ -50,7 +50,7 @@ export const categories: MenuCategory[] = [
   }
 ];
 
-export const menuItems: MenuItem[] = [
+const rawMenuItems: MenuItem[] = [
   {
     "id": 55,
     "name": "Sweet Glaze Pretzel",
@@ -569,6 +569,12 @@ export const menuItems: MenuItem[] = [
     "categoryName": "Dips & Sauces"
   }
 ];
+
+const baseUrl = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
+export const menuItems: MenuItem[] = rawMenuItems.map((item) => ({
+  ...item,
+  imageUrl: item.imageUrl ? `${baseUrl}${item.imageUrl}` : null,
+}));
 
 export const getMenuItem = (id: number): MenuItem | undefined =>
   menuItems.find((item) => item.id === id);
