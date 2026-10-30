@@ -10,6 +10,8 @@
 > *"I wake up every morning in a bed that's too small, drive my daughter to a school that's too expensive, and then I go to work to a job for which I get paid too little. But on Pretzel Day? Well, I like Pretzel Day."*  
 > — **Stanley Hudson**, *The Office*
 
+> 🏆 **Hackathon Project:** Built with **[Replit](https://replit.com/)** as part of the **[Kanz Hackathon](https://ka.nz/hack)**.
+
 Welcome to **Pretzel Day Bakery**, an interactive, multilingual bakery website inspired by Dunder Mifflin's favorite annual Scranton celebration. Built as a modern, responsive single-page application featuring artisan hand-twisted pretzels, custom dips and toppings, live cart simulation, location finder, and complete internationalization with RTL support.
 
 ---
