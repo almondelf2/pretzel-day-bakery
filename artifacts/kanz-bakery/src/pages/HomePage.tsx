@@ -51,7 +51,7 @@ export default function HomePage() {
             >
               <div className="absolute inset-0 bg-gradient-to-br from-amber-100 via-orange-50 to-yellow-100 flex flex-col items-center justify-center gap-6">
                 <img
-                  src="/images/dundie.png"
+                  src={`${(import.meta.env.BASE_URL || '/').replace(/\/$/, '')}/images/dundie.png`}
                   alt="Dundie Award"
                   className="w-48 h-48 sm:w-64 sm:h-64 object-contain drop-shadow-lg"
                 />
