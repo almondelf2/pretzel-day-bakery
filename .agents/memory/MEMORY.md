@@ -1,0 +1,1 @@
+- [Dependency override precedence](dependency-overrides.md) — root package overrides take precedence over workspace YAML overrides; verify the resolved tree.
